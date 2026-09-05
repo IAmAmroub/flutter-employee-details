@@ -2,6 +2,7 @@ import 'package:employee_details_app/models/employee.dart';
 import 'package:employee_details_app/services/employee_cache_service.dart';
 import 'package:employee_details_app/services/employee_service.dart';
 import 'package:flutter/material.dart';
+import 'employee_details_page.dart';
 
 class EmployeeListPage extends StatefulWidget {
   const EmployeeListPage({super.key});
@@ -120,6 +121,18 @@ class _EmployeeListPageState extends State<EmployeeListPage> {
                                     'Age: ${employee.age}\n'
                                     'Salary: ${employee.salary}',
                                   ),
+                                  trailing: const Icon(Icons.arrow_forward_ios),
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            EmployeeDetailsPage(
+                                          employee: employee,
+                                        ),
+                                      ),
+                                    );
+                                  },
                                 ),
                               );
                             },
